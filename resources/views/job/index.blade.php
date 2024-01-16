@@ -16,24 +16,11 @@
                 </div>
                 <div>
                     <div class="mb-1 font-semibold">Experience</div>
-                    <div class="">
-                        <label for="experience" class="flex items-center space-x-1 mb-1">
-                            <input type="radio" name="experience" value="" @checked(!request('experience'))>
-                            <span>All</span>
-                        </label>
-                        <label for="experience" class="flex items-center space-x-1 mb-1">
-                            <input type="radio" name="experience" value="entry" @checked('entry' === request('experience'))>
-                            <span>Entry</span>
-                        </label>
-                        <label for="experience" class="flex items-center space-x-1 mb-1">
-                            <input type="radio" name="experience" value="intermediate" @checked('intermediate' === request('experience'))>
-                            <span>Intermdediate</span>
-                        </label>
-                        <label for="experience" class="flex items-center space-x-1 mb-1" @checked('senior' === request('experience'))>
-                            <input type="radio" name="experience" value="senior">
-                            <span>Senior</span>
-                        </label>
-                    </div>
+                    <x-radio-group name="experience" :options="\App\Models\Job::$experience"></x-radio-group>
+                </div>
+                <div>
+                    <div class="mb-1 font-semibold">Category</div>
+                    <x-radio-group name="category" :options="\App\Models\Job::$category"></x-radio-group>
                 </div>
     
             </div>
