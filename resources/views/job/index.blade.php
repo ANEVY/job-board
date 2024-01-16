@@ -14,6 +14,27 @@
                         <x-text-input name="max_salary" value="{{request('max_salary')}}" placeholder="To" ></x-text-input>
                     </div>
                 </div>
+                <div>
+                    <div class="mb-1 font-semibold">Experience</div>
+                    <div class="">
+                        <label for="experience" class="flex items-center space-x-1 mb-1">
+                            <input type="radio" name="experience" value="" @checked(!request('experience'))>
+                            <span>All</span>
+                        </label>
+                        <label for="experience" class="flex items-center space-x-1 mb-1">
+                            <input type="radio" name="experience" value="entry" @checked('entry' === request('experience'))>
+                            <span>Entry</span>
+                        </label>
+                        <label for="experience" class="flex items-center space-x-1 mb-1">
+                            <input type="radio" name="experience" value="intermediate" @checked('intermediate' === request('experience'))>
+                            <span>Intermdediate</span>
+                        </label>
+                        <label for="experience" class="flex items-center space-x-1 mb-1" @checked('senior' === request('experience'))>
+                            <input type="radio" name="experience" value="senior">
+                            <span>Senior</span>
+                        </label>
+                    </div>
+                </div>
     
             </div>
             <button type="submit" class="btn w-full">Filter</button>
