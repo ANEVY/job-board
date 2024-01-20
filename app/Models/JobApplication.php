@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class JobApplication extends Model
 {
     use HasFactory;
+    protected $fillable = ['salary', 'user_id', 'job_id'];
+
 
     public function job() : BelongsTo {
         return $this->belongsTo(Job::class);
