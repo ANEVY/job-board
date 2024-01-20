@@ -46,9 +46,9 @@ class User extends Authenticatable
     ];
 
     public function employer() : HasOne {
-        return $this->hasOne(Employer::class);
+        return $this->hasOne(\App\Models\Employer::class);
     }
     public function jobApplications() : HasMany {
-        return $this->hasMany(JobApplication::class);
+        return $this->hasMany(\App\Models\JobApplication::class);
     }
 }
