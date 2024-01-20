@@ -23,3 +23,7 @@ Route::get('login',function(){
 })->name('login');
 Route::resource('jobs',JobController::class)->only(['index','show']);
 Route::resource('auth',AuthController::class)->only(['create','store']);
+Route::delete('auth',[AuthController::class,'destroy'])->name('auth.destroy');
+Route::delete('logout',function(){
+    return to_route('auth.destroy');
+})->name('logout');

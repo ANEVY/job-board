@@ -40,7 +40,7 @@ class AuthController extends Controller
         }else{
             return redirect()->back()->with('error','Invalid credentials');
         }
-
+ 
     }
 
     /**
@@ -72,6 +72,9 @@ class AuthController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Auth::logout();
+        request()->session()->invalidate(); 
+        request()->session()->regenerateToken();
+        return redirect("/");
     }
 }
