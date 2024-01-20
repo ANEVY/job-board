@@ -40,7 +40,6 @@ class DatabaseSeeder extends Seeder
                     'job_id' => $job->id,
                     'user_id' => $user->id
                 ]
-
                 );
 
             }

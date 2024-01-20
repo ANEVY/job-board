@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,6 @@ Route::delete('auth',[AuthController::class,'destroy'])->name('auth.destroy');
 Route::delete('logout',function(){
     return to_route('auth.destroy');
 })->name('logout');
+Route::middleware('auth')->group(function(){
+    Route::resource('job.application', JobApplicationController::class)->only(['create','store']);
+});
