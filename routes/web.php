@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,4 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get("",function(){
     return redirect()->route('jobs.index');
 });
+Route::get('login',function(){
+    return to_route('auth.create')->name('login');
+});
 Route::resource('jobs',JobController::class)->only(['index','show']);
+Route::resource('auth',AuthController::class)->only(['create','store']);
