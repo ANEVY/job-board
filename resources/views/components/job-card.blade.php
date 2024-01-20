@@ -20,5 +20,7 @@
             <x-tag>{{$job->category}}</x-tag>
         </div>
     </div>
-    {{$slot}}    
+    <div class="text-slate-400 text-sm">posted: {{$job->created_at->diffForHumans()}}</div>
+    <div class="my-2">{{$slot}}  </div>
+      
 </x-card>
