@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel Job board</title>
-        @vite('resources/css/app.css')
+        @vite(['resources/css/app.css','resources/css/app.js '])
     </head>
     <body class="mx-auto mt-10 max-w-2xl">
         {{$slot}}

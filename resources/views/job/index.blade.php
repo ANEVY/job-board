@@ -1,17 +1,18 @@
 <x-layout>
     <x-breadcrumb class="mb-4" :links="['Jobs'=>route('jobs.index')]"></x-breadcrumb>
-    <x-card class="mb-4 text-sm">
-        <form action="" method="get">
+    <x-card class="mb-4 text-sm" x-data="">
+        <form x-ref="filters" id="filtering-form" action="{{ route('jobs.index') }}" method="GET">
             <div class="mb-4 grid grid-cols-2 gap-4">
                 <div>
                     <div class="mb-1 font-semibold">Search</div>
-                    <x-text-input name="search" value="{{request('search')}}" placeholder="Search for any text" ></x-text-input>
+                    <x-text-input name="search" value="{{request('search')}}"
+                     placeholder="Search for any text" form-ref="filters"></x-text-input>
                 </div>
                 <div>
                     <div class="mb-1 font-semibold">Salary</div>
                     <div class="flex space-x-4">
-                        <x-text-input name="min_salary" value="{{request('min_salary')}}" placeholder="From" ></x-text-input>
-                        <x-text-input name="max_salary" value="{{request('max_salary')}}" placeholder="To" ></x-text-input>
+                        <x-text-input name="min_salary" value="{{request('min_salary')}}" placeholder="From" form-ref="filters"></x-text-input>
+                        <x-text-input name="max_salary" value="{{request('max_salary')}}" placeholder="To" form-ref="filters"></x-text-input>
                     </div>
                 </div>
                 <div>
@@ -24,10 +25,11 @@
                 </div>
     
             </div>
-            <button type="submit" class="btn w-full">Filter</button>
+
+            <x-button type="submit" class="btn w-full">Filter</x-button> 
         </form>
 
-    </x-card>
+    </x-card> 
     @foreach ($jobs as $job)
         <x-job-card class="mb-4" :job="$job">
             <div class="my-3">
