@@ -19,7 +19,7 @@ Route::get("",function(){
     return redirect()->route('jobs.index');
 });
 Route::get('login',function(){
-    return to_route('auth.create')->name('login');
-});
+    return to_route('auth.create');
+})->name('login');
 Route::resource('jobs',JobController::class)->only(['index','show']);
 Route::resource('auth',AuthController::class)->only(['create','store']);
