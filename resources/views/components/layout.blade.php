@@ -18,7 +18,7 @@
             <ul class="flex space-x-2">
               @auth
                 <li>
-                  {{ auth()->user()->name ?? 'Anynomus' }}
+                  <a href="{{route('my-job-application.index')}}">{{ auth()->user()->name ?? 'Anynomus' }}</a>
                 </li>
                 <li>
                   <form action="{{ route('auth.destroy') }}" method="POST">
@@ -34,6 +34,12 @@
               @endauth
             </ul>
           </nav>
+          @if(session('success'))
+          <div class="bg-blue-300 border-l-4 border-blue-800 text-slate-100 p-4 my-4" role="alert">
+            <p class="font-bold">Success</p>
+            <p>{{ session('success') }}</p>
+          </div>
+        @endif
         {{$slot}}
     </body>
 </html>
