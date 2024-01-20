@@ -35,7 +35,8 @@ class JobController extends Controller
         ->when(request('category'),function($query){
             $query->where('category',request('category') );
         });
-        return view('job.index',['jobs'=>$jobs->with('employer')->get()]);
+        return view('job.index',['jobs'=>$jobs->with('employer')->latest()->get()]);
+
     }
 
     /**
@@ -51,7 +52,8 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+    
     }
 
     /**
