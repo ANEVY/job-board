@@ -22,7 +22,7 @@ return new class extends Migration
 
         Schema::table('jobs',function(Blueprint $table){
             $table->foreignIdFor(Employer::class)->constrained();
-        });
+        }); 
     }
 
     /**
